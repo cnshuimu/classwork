@@ -24,7 +24,6 @@ arcade.draw_rectangle_filled(150, (50+125)/2, 20, 75, arcade.color.BROWN)
 arcade.draw_triangle_filled(150, 200, 150+40, 125, 150-40, 125, arcade.color.DARK_GREEN)
 
 
-arcade.run()
-
 # End drawing
 arcade.finish_render()
+arcade.run()
