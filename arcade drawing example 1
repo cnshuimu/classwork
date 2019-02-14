@@ -1,0 +1,30 @@
+import arcade
+
+
+WIDTH = 640
+HEIGHT = 480
+
+arcade.open_window(WIDTH, HEIGHT, "My Drawing")
+arcade.set_background_color(arcade.color.SKY_BLUE)
+
+arcade.start_render()
+# Begin drawing
+arcade.draw_circle_filled(640-100, 480-100, 50, arcade.color.YELLOW)
+
+arcade.draw_circle_filled(50, 50, 30, arcade.color.BLUE_GREEN)
+arcade.draw_rectangle_filled(320, 50, 640, 100,arcade.color.GREEN)
+
+arcade.draw_rectangle_filled(640-125, (50+125)/2, 20, 75, arcade.color.BROWN)
+arcade.draw_triangle_filled(640-125, 200, 640-125+40, 125, 640-125-40, 125, arcade.color.DARK_GREEN)
+
+arcade.draw_rectangle_filled(640-200, (50+125)/2, 20, 75, arcade.color.BROWN)
+arcade.draw_triangle_filled(640-200, 200, 640-200+40, 125, 640-200-40, 125, arcade.color.DARK_GREEN)
+
+arcade.draw_rectangle_filled(150, (50+125)/2, 20, 75, arcade.color.BROWN)
+arcade.draw_triangle_filled(150, 200, 150+40, 125, 150-40, 125, arcade.color.DARK_GREEN)
+
+
+arcade.run()
+
+# End drawing
+arcade.finish_render()
