@@ -1,0 +1,97 @@
+"""
+# Markbook Program
+- Enter/remove/change student names
+- Enter/change student marks, one mark per student, or more if you want.
+- Calculate class average
+- Get list of at-risk students mark <= 65
+- Get top student/mark
+- Print a report of whole class (names and marks)
+"""
+students = ["Mark", "Ada", "Taylor", "Johnson", "Nikki", "Zulfiy", "Figo", "Bell", "Daisy", "Joe"]
+marks = [99, 100, 34, 66, 78, 89, 71, 93, 57, 21 ]
+highest = 0
+
+while True:
+    # display menu options
+    print("Markbook")
+    print("1 - Enter/remove/change student names")
+    print("2 - Enter/change student marks")
+    print("3 - Check the class average")
+    print("4 - Print at-risk students mark")
+    print("5 - Check top student/mark")
+    print("6 - Check the class report")
+    print("0 - Close the program""")
+
+    choice = int(input("Menu choice: "))
+    
+
+    # handle the choices
+
+    if choice == 1:
+        print("""Enter a new name (1)
+Reomove an existed name (2)
+Change an existed name (3)""")
+        subchoice = int(input("Choice: "))
+        if subchoice == 1:
+          name = input("Enter a name you want to add: ")
+          students.append(name)
+        elif subchoice == 2:
+          name = input("Enter a name you want to remove: ")
+          marks.remove(marks[students.index(name)])
+          students.remove(name)
+        elif subchoice == 3:
+          name = input("Enter the name you want to change: ")
+          new_name = input("What is the new name?: ")
+          students[students.index(name)] = new_name 
+        
+        input("Back to menu [Enter]...")
+
+    elif choice == 2:
+        print("""Enter a new mark for student (1)
+Change current student mark (2)""")
+        subchoice = int(input("Choice: "))
+        if subchoice == 1:
+            option = int(input("""Update mark for a new name (1)
+Update mark for a exsited name (2)
+Choice: """))
+            if option == 1:
+                name = input("Enter a new name: ")
+                students.append(name)
+                mark = int(input("Enter the mark: "))
+                marks.append(mark)
+            elif option == 2:
+                name = input("Enter a student name you want to update the marks for: ")
+                mark = int(input("Enter the mark: "))
+                marks[students.index(name)] = mark
+        elif subchoice == 2:
+            name = input("Enter a student name you want to change the marks for: ")
+            mark = int(input("Enter the mark: "))
+            marks[students.index(name)] = mark
+        print(students, marks)
+
+        input("Back to menu [Enter]...")
+    
+    elif choice == 3:
+        print("The class average is: ", sum(marks) / len(marks))
+        input("Back to menu [Enter]...")
+    
+    elif choice == 4:
+        for mark in marks:
+            if mark <= 65:
+                print(students[marks.index(mark)], mark)
+        input("Back to menu [Enter]...")
+
+    elif choice == 5:
+        for mark in marks:
+            if highest < mark:
+                highest = mark
+        print(students[marks.index(highest)], highest)
+        input("Back to menu [Enter]...")
+
+    elif choice == 6:
+        for mark in marks:
+            print(students[marks.index(mark)], mark)
+        input("Back to menu [Enter]...")
+
+    elif choice == 0:
+        break
